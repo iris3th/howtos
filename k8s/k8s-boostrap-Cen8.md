@@ -29,10 +29,10 @@ systemctl start kubelet
 ```
 
 ```
-   77  cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
-   78  overlay
-   79  br_netfilter
-   80  EOF
+cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
+overlay
+br_netfilter
+EOF
 ```
 
 ```
