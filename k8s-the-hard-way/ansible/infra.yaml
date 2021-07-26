@@ -1,0 +1,29 @@
+---
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Install Python
+      raw: "apt-get -y -q install python3"
+      become: true
+      retries: 10
+      delay: 20
+
+- hosts: all
+  gather_facts: true
+  become: true
+  roles:
+    - common
+
+
+- hosts: _master
+  gather_facts: true
+  become: true
+  roles:
+    - master
+
+- hosts: _worker
+  gather_facts: true
+  become: true
+  roles:
+    - worker

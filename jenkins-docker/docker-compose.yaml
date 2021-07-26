@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+    jenkins:
+        build:
+            context: ./
+            args:
+                HOST_UID: ${HOST_UID}  # id -u jenkins (on host)
+                HOST_GID: ${HOST_GID}  # getent group | grep docker (on host)
+        restart: unless-stopped
+        volumes:
+            - ${HOST_DOCKER}:/var/run/docker.sock
+            - ${HOST_JENKINS_DATA}:/var/jenkins_home
+        ports:
+            - "8080:8080"
+            - "50000:50000"

@@ -1,0 +1,9 @@
+---
+
+internal_cidr: "10.0.0.0/8" # Includes VPC and Kubernetes subnets
+kubernetes_service_cluster_cidr: "10.32.0.0/24"
+pod_network: "192.168.0.0/16"
+
+kubernetes_version: "v1.3.6"
+remote_user: ubuntu
+ansible_ssh_private_key_file: "/home/iriseth/k8s-hw-key.pem"

@@ -1,0 +1,45 @@
+---
+- name: Update hostname
+  become: true
+  command: hostnamectl set-hostname k8s-master
+
+- name: Initialize the Kubernetes cluster using kubeadm
+  command: kubeadm init --node-name k8s-master --pod-network-cidr={{ pod_network }} --ignore-preflight-errors=all
+
+- name: Check if we have any previous kubeconfig
+  file:
+    path: /home/{{ remote_user }}/.kube
+    state: absent
+
+- name: Setup kubeconfig for {{ remote_user }} user
+  become: true
+  command: "{{ item }}"
+  with_items:
+   - mkdir -p /home/{{ remote_user }}/.kube
+   - cp -i /etc/kubernetes/admin.conf /home/{{ remote_user }}/.kube/config
+   - chown {{ remote_user }}:{{ remote_user }} /home/{{ remote_user }}/.kube/config
+   - chown {{ remote_user }}:{{ remote_user }} /home/{{ remote_user }}/.kube
+  args:
+    warn: false
+
+- name: Copy calico config to the node
+  become: false
+  copy:
+    src: calico.yaml
+    dest: /tmp/calico.yaml
+
+- name: Install calico pod network
+  become: false
+  command: kubectl apply -f /tmp/calico.yaml
+  ignore_errors: yes
+
+- name: Generate join command
+  command: kubeadm token create --print-join-command
+  register: join_command
+
+- name: Copy join command to local file
+  local_action: copy content="{{ join_command.stdout_lines[0] }}" dest="./join-command"
+
+- name: Label node
+  become: false
+  command: kubectl label nodes k8s-master app=web

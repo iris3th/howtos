@@ -1,0 +1,9 @@
+- name: Update hostname
+  become: true
+  command: hostnamectl set-hostname k8s-worker
+
+- name: Copy the join command to server location
+  copy: src=join-command dest=/tmp/join-command.sh mode=0777
+
+- name: Join the worker node to the cluster
+  command: sh /tmp/join-command.sh
