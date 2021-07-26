@@ -1,3 +1,4 @@
+#get stats of each sonar project except a few and dump it to stdout in csv format
 #!/bin/bash
 month=$(date +'%b')
 echo "Application,month,blocker_violations,critical_violations,major_violations,technical_debt_days,TotalLOC,LinesToCover,LinesUncovered"
