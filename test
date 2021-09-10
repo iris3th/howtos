@@ -10,7 +10,7 @@ pipeline{
  
      stage('Get RUN ID'){
        steps {
-         withCredentials([usernamePassword(credentialsId: "mongo_rs_sfrr_${BUILD_ENV}", usernameVariable: 'MONGO_USERNAME', passwordVariable: 'MONGO_PASSWORD')]) {
+         withCredentials([usernamePassword(credentialsId: "mongo_rs_${BUILD_ENV}", usernameVariable: 'MONGO_USERNAME', passwordVariable: 'MONGO_PASSWORD')]) {
           script {
           sh """#!/bin/bash
                 echo 1 > run_id.txt
