@@ -1,0 +1,44 @@
+---
+- name: Install dependencies
+  become: true
+  package:
+    name:
+      - gcc
+      - make
+      - openssl-devel
+      - bzip2-devel
+      - libffi-devel
+      - zlib-devel
+    state: present
+
+- name: Download and extract Python 3.11
+  get_url:
+    url: https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
+    dest: /tmp/Python-3.11.0.tgz
+
+- name: Extract Python 3.11
+  become: true
+  unarchive:
+    src: /tmp/Python-3.11.0.tgz
+    dest: /tmp
+
+- name: Configure and build Python 3.11
+  become: true
+  command: |
+    ./configure --enable-shared=no --prefix=/opt/python-3.11
+    make
+    make install
+  args:
+    chdir: /tmp/Python-3.11.0
+    creates: /opt/python-3.11/bin/python3
+
+- name: Set environment variables
+  become: true
+  lineinfile:
+    path: /etc/environment
+    line: "PATH=\"/opt/python-3.11/bin:$PATH\""
+    state: present
+    create: yes
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/opt/python-3.11/bin"
+
