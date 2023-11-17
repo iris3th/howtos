@@ -1,0 +1,17 @@
+version: '1.4.5'
+
+services:
+  irssi:
+    image: irssi:1.4.5
+    container_name: irssi
+    environment:
+      - TERM -u $(id -u):$(id -g)
+    ports:
+      - "22/tcp"
+      - "443/tcp"
+    tmpfs:
+      - /tmp
+    volumes:
+      - /worx/docker/irssi/:/home/user/.irssi
+
+    restart: unless-stopped
