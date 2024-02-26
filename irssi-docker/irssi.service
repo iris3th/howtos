@@ -1,0 +1,13 @@
+[Unit]
+Description=irssi
+After=network.target NetworkManager.service
+
+[Service]
+Environment SCREENDIR=/home/someuser/.screen
+ExecStart=/usr/bin/screen -D -m irssi
+ExecStop=
+User=someuser
+Group=somegroup
+
+[Install]
+WantedBy=multi-user.target
