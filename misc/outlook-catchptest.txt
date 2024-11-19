@@ -1,0 +1,37 @@
+Sub CheckLinkInEmail(Item As Outlook.MailItem)
+    Dim RegExp As Object
+    Dim Matches As Object
+    Dim Link As String
+    Dim DeletedFolder As Outlook.Folder
+    Dim HTMLBody As String
+    
+    ' Get the Deleted Items folder
+    Set DeletedFolder = Application.Session.GetDefaultFolder(olFolderDeletedItems)
+
+    ' Create RegExp object to find links
+    Set RegExp = CreateObject("VBScript.RegExp")
+    RegExp.Pattern = "http[s]?://[^\s]+" ' Pattern to match links
+    RegExp.Global = True
+
+    ' Check if the email is in HTML format
+    If Item.BodyFormat = olFormatHTML Then
+        HTMLBody = Item.HTMLBody ' Extract HTML body of the email
+    Else
+        HTMLBody = Item.Body ' Extract plain-text body
+    End If
+
+    ' Check if the email body contains links
+    If RegExp.Test(HTMLBody) Then
+        Set Matches = RegExp.Execute(HTMLBody)
+        For Each Link In Matches
+            ' Check if the link contains "clicktime" or "symantec"
+            If InStr(1, Link, "clicktime", vbTextCompare) > 0 Or _
+               InStr(1, Link, "symantec", vbTextCompare) > 0 Then
+                ' Move email to Deleted Items folder
+                Item.Move DeletedFolder
+                Exit For
+            End If
+        Next
+    End If
+End Sub
+
