@@ -8,3 +8,5 @@ for i in *.jpg;do jpegoptim --size=500k $i;done # shrink all jpeg to 500k
 
 VBoxManage modifyhd --resize [new size in MB] [/path/to/vdi]
 
+ffmpeg -i {in-video}.mov -vcodec h264 -acodec aac {out-video}.mp4
+
