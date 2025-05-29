@@ -1,0 +1,100 @@
+Certainly! Here's a GitHub Actions snippet that:
+
+Publishes an artifact to a Nexus repository using gradlew.
+
+Uses repository secrets NEXUS_USER and NEXUS_PASSWORD.
+
+Uses the Gradle -P project properties to pass Nexus credentials and configuration.
+
+Optionally uses a temporary inline init.gradle script so you don't need to modify build.gradle.
+
+
+
+
+
+
+
+
+
+
+name: Publish to Nexus
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Grant execute permissions to gradlew
+        run: chmod +x ./gradlew
+
+      - name: Create temporary publish init script
+        run: |
+          cat > publish.gradle <<'EOF'
+          allprojects {
+              apply plugin: 'maven-publish'
+
+              publishing {
+                  publications {
+                      mavenJava(MavenPublication) {
+                          groupId = project.findProperty("group") ?: "com.example"
+                          artifactId = project.findProperty("artifactId") ?: "my-artifact"
+                          version = project.findProperty("version") ?: "1.0.0"
+                          artifact(file(project.findProperty("artifactFile") ?: "build/libs/my-artifact.jar"))
+                      }
+                  }
+
+                  repositories {
+                      maven {
+                          url = uri(project.findProperty("nexusUrl") ?: "https://nexus.example.com/repository/maven-releases")
+                          credentials {
+                              username = project.findProperty("nexusUsername") ?: System.getenv("NEXUS_USER")
+                              password = project.findProperty("nexusPassword") ?: System.getenv("NEXUS_PASSWORD")
+                          }
+                      }
+                  }
+              }
+          }
+          EOF
+
+      - name: Build and publish artifact
+        env:
+          NEXUS_USER: ${{ secrets.NEXUS_USER }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+        run: |
+          ./gradlew publish -I publish.gradle \
+            -PnexusUrl=https://nexus.example.com/repository/maven-releases \
+            -PnexusUsername=$NEXUS_USER \
+            -PnexusPassword=$NEXUS_PASSWORD \
+            -Pgroup=com.example \
+            -Pversion=1.0.0 \
+            -PartifactId=my-artifact \
+            -PartifactFile=build/libs/my-artifact-1.0.0.jar
+
+
+
+
+
+🔧 Replace the following placeholders:
+
+Placeholder	Replace with
+https://nexus.example.com/repository/maven-releases	Your Nexus repository URL
+com.example	Your artifact's group ID
+my-artifact	Your artifact ID
+1.0.0	Your version
+build/libs/my-artifact-1.0.0.jar	Path to your generated JAR or artifact
+
+This workflow allows full external configuration without touching your build.gradle, and safely pulls credentials from GitHub Secrets.
+
+Let me know if your project builds a non-JAR artifact or uses a different structure—I’ll adjust it accordingly.
