@@ -1,22 +1,3 @@
-Certainly! Here's a GitHub Actions snippet that:
-
-Publishes an artifact to a Nexus repository using gradlew.
-
-Uses repository secrets NEXUS_USER and NEXUS_PASSWORD.
-
-Uses the Gradle -P project properties to pass Nexus credentials and configuration.
-
-Optionally uses a temporary inline init.gradle script so you don't need to modify build.gradle.
-
-
-
-
-
-
-
-
-
-
 name: Publish to Nexus
 
 on:
