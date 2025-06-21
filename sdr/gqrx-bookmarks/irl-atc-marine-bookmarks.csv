@@ -1,0 +1,91 @@
+# Tag name          ;  color
+Dublin Emergency    ; #c0c0c0
+Dublin Fire Brigade ; #ff4500
+Dublin Public Transport; #ffa500
+ISS Audio           ; #808080
+Irish ATC (VHF)     ; #87ceeb
+Marine VHF          ; #00b050
+NOAA-15             ; #c0c0c0
+NOAA-18             ; #c0c0c0
+NOAA-19             ; #c0c0c0
+NOAA-19 137.1       ; #c0c0c0
+NOAA-19 137.350     ; #c0c0c0
+
+# Frequency ; Name                     ; Modulation          ;  Bandwidth; Tags
+   118500000; Dublin Information (FIS) ; AM                  ;      10000; Irish ATC (VHF)
+   118600000; Dublin Tower (South)     ; AM                  ;      10000; Irish ATC (VHF)
+   118700000; Shannon Tower            ; AM                  ;      10000; Irish ATC (VHF)
+   119300000; Cork Tower               ; AM                  ;      10000; Irish ATC (VHF)
+   119555000; Dublin Approach (low)    ; AM                  ;      10000; Irish ATC (VHF)
+   119805000; Dublin Tower (North)     ; AM                  ;      10000; Irish ATC (VHF)
+   119805000; Dublin Tower (North alt) ; AM                  ;      10000; Irish ATC (VHF)
+   119900000; Cork Approach            ; AM                  ;      10000; Irish ATC (VHF)
+   119930000; Dublin Approach (Final)  ; AM                  ;      10000; Irish ATC (VHF)
+   120749100; Shannon ?                ; AM                  ;      10956; Irish ATC (VHF)
+   120755000; Dublin ACC (1)           ; AM                  ;      10000; Irish ATC (VHF)
+   121100000; Dublin Approach (main)   ; AM                  ;      10000; Irish ATC (VHF)
+   121400000; Shannon Approach         ; AM                  ;      10000; Irish ATC (VHF)
+   121700000; Shannon Oceanic Clearance; AM                  ;      10000; Irish ATC (VHF)
+   121800000; Dublin Ground Control (South); AM                  ;      10000; Irish ATC (VHF)
+   121870000; Dublin Clearance Delivery; AM                  ;      10000; Irish ATC (VHF)
+   121875000; Dublin Clearance Delivery (CLD); AM                  ;      10000; Irish ATC (VHF)
+   122100000; Sligo Tower              ; AM                  ;      10000; Irish ATC (VHF)
+   122500000; Galway Tower             ; AM                  ;      10000; Irish ATC (VHF)
+   123750000; Moyne Airfield           ; AM                  ;      10000; Irish ATC (VHF)
+   124100000; Kerry Tower              ; AM                  ;      10000; Irish ATC (VHF)
+   124175000; Shanwick Oceanic (VHF)   ; AM                  ;      10000; Irish ATC (VHF)
+   124525000; Dublin ATIS              ; AM                  ;      10000; Irish ATC (VHF)
+   124650000; Dublin ACC (2)           ; AM                  ;      10000; Irish ATC (VHF)
+   124680000; Dublin Tower (North high); AM                  ;      10000; Irish ATC (VHF)
+   124700000; Shannon Area Control     ; AM                  ;      10000; Irish ATC (VHF)
+   124900000; Dublin Approach          ; AM                  ;      10000; Irish ATC (VHF)
+   125885000; Dublin Ground Control (North); AM                  ;      10000; Irish ATC (VHF)
+   126250000; Dublin ACC (3)           ; AM                  ;      10000; Irish ATC (VHF)
+   128800000; Dublin Tower (alt high)  ; AM                  ;      10000; Irish ATC (VHF)
+   129175000; Dublin ACC (0)           ; AM                  ;      10000; Irish ATC (VHF)
+   129180000; Dublin ACC (4)           ; AM                  ;      10000; Irish ATC (VHF)
+   129640000; Dublin ATIS (backup)     ; AM                  ;      10000; Irish ATC (VHF)
+   129800000; Donegal Tower            ; AM                  ;      10000; Irish ATC (VHF)
+   129850000; Waterford Tower          ; AM                  ;      10000; Irish ATC (VHF)
+   130700000; Knock/Connaught Tower    ; AM                  ;      10000; Irish ATC (VHF)
+   130790000; Dublin Ground (secondary); AM                  ;      10000; Irish ATC (VHF)
+   131100000; Dublin Delivery          ; AM                  ;      10000; Irish ATC (VHF)
+   132575000; Dublin Centre            ; AM                  ;      10000; Irish ATC (VHF)
+   132580000; Dublin ACC (5)           ; AM                  ;      10000; Irish ATC (VHF)
+   133280000; Dublin Approach (extra/in-out); AM                  ;      10000; Irish ATC (VHF)
+   135655000; Dublin ACC (6)           ; AM                  ;      10000; Irish ATC (VHF)
+   137100000; NOAA-19                  ; Narrow FM           ;       5000; NOAA-19 137.1
+   137350000; NOAA-19                  ; Narrow FM           ;       5000; NOAA-19 137.350
+   137620000; NOAA-18                  ; Narrow FM           ;       5000; NOAA-18
+   137770000; NOAA-19 137.77           ; Narrow FM           ;       5000; NOAA-19
+   137912500; NOAA-15 (sometimes unreliable); Narrow FM           ;       5000; NOAA-15
+   145500000; Dublin Amateur Radio Repeater; FM                  ;      10000; Dublin Public Transport
+   145800000; ISS Audio                ; FM                  ;      12500; ISS Audio
+   151400000; Dublin Garda (Police)    ; FM                  ;      10000; Dublin Emergency
+   155000000; Dublin Fire Brigade      ; FM                  ;      10000; Dublin Fire Brigade
+   155200000; Dublin Ambulance Service ; FM                  ;      10000; Dublin Emergency
+   156000000; Marine Ch 0 – Coastguard ; Narrow FM           ;      12500; Marine VHF
+   156300000; Marine Ch 6 – Ship‑to‑ship; Narrow FM           ;      12500; Marine VHF
+   156350000; Marine Ch 7 – Port ops   ; Narrow FM           ;      12500; Marine VHF
+   156375000; Marine Ch67 – SAR Coord  ; Narrow FM           ;      12500; Marine VHF
+   156400000; Marine Ch 8 – Regional   ; Narrow FM           ;      12500; Marine VHF
+   156425000; Marine Ch68 – General    ; Narrow FM           ;      12500; Marine VHF
+   156450000; Marine Ch 9 – Port/Ship  ; Narrow FM           ;      12500; Marine VHF
+   156475000; Marine Ch69 – Ship/Port  ; Narrow FM           ;      12500; Marine VHF
+   156500000; Marine Ch10 – Port/Heli  ; Narrow FM           ;      12500; Marine VHF
+   156525000; Marine Ch70 – DSC        ; Narrow FM           ;      12500; Marine VHF
+   156550000; Marine Ch11 – Port ops   ; Narrow FM           ;      12500; Marine VHF
+   156600000; Marine Ch12 – Port ops   ; Narrow FM           ;      12500; Marine VHF
+   156625000; Marine Ch72 – Ship‑to‑ship; Narrow FM           ;      12500; Marine VHF
+   156650000; Marine Ch13 – Bridge‑bridge; Narrow FM           ;      12500; Marine VHF
+   156675000; Marine Ch73 – CG Safety  ; Narrow FM           ;      12500; Marine VHF
+   156700000; Marine Ch14 – Port ops   ; Narrow FM           ;      12500; Marine VHF
+   156800000; Marine Ch16 – Distress   ; Narrow FM           ;      12500; Marine VHF
+   157550000; Marine Ch31 – RNLI/Rescue; Narrow FM           ;      12500; Marine VHF
+   157800000; Marine Ch28 – Public Corr.; Narrow FM           ;      12500; Marine VHF
+   160675000; Marine Ch61 – Lough Derg ; Narrow FM           ;      12500; Marine VHF
+   160725000; Marine Ch62 – Valentia   ; Narrow FM           ;      12500; Marine VHF
+   160775000; Marine Ch63 – Belmullet  ; Narrow FM           ;      12500; Marine VHF
+   160825000; Marine Ch64 – Shannon    ; Narrow FM           ;      12500; Marine VHF
+   161025000; Dublin Luas (Tram)       ; FM                  ;      10000; Dublin Public Transport
+   162550000; Dublin Bus Fleet Radio   ; FM                  ;      10000; Dublin Public Transport
