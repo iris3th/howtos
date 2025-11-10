@@ -1,0 +1,45 @@
+# Tag name          ;  color
+*Dublin Approach 121.100*; #c0c0c0
+*Dublin Ground Control*; #c0c0c0
+Dublin ACC          ; #c0c0c0
+Dublin ATIS         ; #c0c0c0
+Dublin ATIS (automated weather); #c0c0c0
+Dublin Approach     ; #c0c0c0
+Dublin Approach (Final); #c0c0c0
+Dublin Centre       ; #c0c0c0
+Dublin Delivery     ; #c0c0c0
+Dublin Tower        ; #c0c0c0
+ISS Audio           ; #c0c0c0
+Moyne Airfield      ; #c0c0c0
+NOAA-18             ; #c0c0c0
+NOAA-19             ; #c0c0c0
+NOAA-19 137.1       ; #c0c0c0
+NOAA-19 137.350     ; #c0c0c0
+Shannon             ; #c0c0c0
+Shannon (Oceanic Clearance); #c0c0c0
+Shannon ?           ; #c0c0c0
+Untagged            ; #c0c0c0
+
+# Frequency ; Name                     ; Modulation          ;  Bandwidth; Tags
+   118500000; Dublin Tower             ; AM                  ;      10000; Dublin Tower
+   118600000; Dublin Tower (South)     ; AM                  ;      10000; Untagged
+   119930000; Dublin Approach (Final)  ; AM                  ;      10000; Dublin Approach (Final)
+   120749100; Shannon ?                ; AM                  ;      10956; Shannon ?
+   121100000; Dublin Approach          ; AM                  ;      10000; Dublin Tower,*Dublin Ground Control*,Dublin Approach,Dublin ATIS (automated weather),*Dublin Approach 121.100*
+   121700000; Shannon (Oceanic Clearance); AM                  ;      10000; Shannon (Oceanic Clearance)
+   121800000; Dublin Ground Control    ; AM                  ;      10000; *Dublin Ground Control*
+   121870000; Dublin Clearance         ; AM                  ;      10000; Untagged
+   123750000; Moyne Airfield           ; AM                  ;      10000; Moyne Airfield
+   124524900; Dublin ATIS              ; AM                  ;      10000; Dublin ATIS
+   124680000; Dublin Tower (North)     ; AM                  ;      10000; Untagged
+   124700000; Shannon                  ; AM                  ;       7212; Shannon
+   124900000; Dublin Approach          ; AM                  ;      10000; Dublin Approach
+   129175000; Dublin ACC               ; AM                  ;      10000; Dublin ACC
+   131100000; Dublin Delivery          ; AM                  ;      10000; Dublin Delivery
+   132575000; Dublin Centre            ; AM                  ;      10000; Dublin Centre
+   137100000; NOAA-19                  ; Narrow FM           ;       5000; NOAA-19 137.1
+   137350000; NOAA-19 137.350          ; Narrow FM           ;       5000; NOAA-19 137.350
+   137770000; NOAA-19 137.77           ; Narrow FM           ;       5000; NOAA-19
+   137912500; NOAA-18                  ; Narrow FM           ;       5000; NOAA-18
+   145800000; ISS Audio                ; Narrow FM           ;      10000; ISS Audio
+   156000000; CoastGuard               ; Narrow FM           ;      10000; Untagged
