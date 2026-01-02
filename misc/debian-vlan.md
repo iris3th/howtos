@@ -1,14 +1,14 @@
-## connect to tagged vlan from debian configured on mikrotik router
+### connect to tagged vlan from debian configured on mikrotik router
 
-### add 8021q to /etc/modules
+#### add 8021q to /etc/modules
 
-### create the virtual interface
+#### create the virtual interface
 
 ```
 sudo ip link add link eth2 name eth2.500 type vlan id 500
 
 ```
-### add new if to the interfaces file there are more fancy ways but I prefer simplicity
+#### add new if to the interfaces file. (there are more fancy ways but I prefer simplicity)
 
 ```
 iface eth2.500 inet dhcp
