@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  vaultwarden:
+    image: docker.io/vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    expose:
+      - "80"
+    volumes:
+      - ./data:/data
+    environment:
+      - SIGNUPS_ALLOWED=false
+      - DOMAIN=https://vault.example.com:8443
+
+  caddy:
+    image: docker.io/caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "192.168.1.5:8443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./certs:/certs
+      - caddy_data:/data
+    depends_on:
+      - vaultwarden
+
+volumes:
+  caddy_data:

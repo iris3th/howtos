@@ -1,0 +1,4 @@
+:443 {
+    tls /certs/wildcard.crt /certs/wildcard.key
+    reverse_proxy vaultwarden:80
+}
