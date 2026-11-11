@@ -1,0 +1,11 @@
+
+services:
+  hf-downloader:
+    build: .
+    container_name: hf-downloader
+    volumes:
+      - ./models:/data
+    environment:
+      - HF_HOME=/data/.cache/huggingface
+    restart: "no"
+
